@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple student search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <section class=" py-1 bg-[#112244] h-full">
+
+        <div class="w-full  px-4 mx-auto mt-6">
+            <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 bg-[#F1F5F9]">
+                <div class="rounded-t mb-0 px-6 py-6 bg-[#E6F1FB]">
+                    <div class="text-center flex justify-between">
+                        <h6 class="text-blueGray-700 text-xl font-bold">
+                            {{ request.user.username }}
+                        </h6>
+                        <a href="{% url "home" %}">
+                            <button
+                                class="bg-pink-500  text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                type="button">
+                                Home
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex-auto px-4 lg:px-10 pt-0">
+                    <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                        Search :
+                    </h6>
+
+                    <form method='POST'>
+
+                        {% csrf_token %}
+                        <div class="flex flex-wrap">
+                            <div class="w-full lg:w-1/3 px-4">
+                                <div class="relative w-full mb-3 flex flex-col">
+
+                                    <label class ="font-bold" for="class_no">Enter class number</label>
+                                    <select name="class_no" id="class_no" class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-[#8CABFF] rounded text-sm shadow focus:outline-none focus:ring" required>
+                                        <option value="All">All</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/3 px-4">
+                                <div class="relative w-full mb-3 flex flex-col">
+                                    <label class ="font-bold" for="class_division">Enter class division</label>
+                                    <select name="class_division" id="class_division" class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-[#8CABFF] rounded text-sm shadow focus:outline-none focus:ring" required>
+                                        <option value="All">All</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/3 px-4">
+                                <div class="relative w-full mb-3 flex flex-col">
+                                    <label class ="font-bold" for="class_no">gender</label>
+                                    <select id="gender" name="gender" class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-[#8CABFF] rounded text-sm shadow focus:outline-none focus:ring" required>
+                                        <option value="All">All</option>
+                                        <option value="m">Male</option>
+                                        <option value="f">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/3 px-4">
+                                <div class="relative w-full mb-3 flex flex-col">
+                                    <label class ="font-bold" for="religion">Enter religion</label>
+                                    <select name="religion" id="religion" class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-[#8CABFF] rounded text-sm shadow focus:outline-none focus:ring" required>
+                                        <option value="All">All</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Jain">Jain</option>
+                                        <option value="Buddhist">Buddhist</option>
+                                        <option value="Sikh">Sikh</option>
+                                        <option value="Christian">Christian</option>
+                                        <option value="Muslim">Muslim</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/3 px-4">
+                                <div class="relative w-full mb-3 flex flex-col">
+                                    <label class ="font-bold" for="caste">Enter caste</label>
+                                    <select name="caste" id="caste" class="border-0 px-2 py-2 placeholder-blueGray-300 text-blueGray-600 bg-[#8CABFF] rounded text-sm shadow focus:outline-none focus:ring"required>
+                                        <option value="All">All</option>
+                                        <option value="Open">Open</option>
+                                        <option value="OBC">OBC</option>
+                                        <option value="SBC">SBC</option>
+                                        <option value="SC">SC</option>
+                                        <option value="ST">ST</option>
+                                        <option value="NT">NT</option>
+                                        <option value="VJ">VJ</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-1/3 px-4">
+                                <div class="flex items-center justify-center h-full">
+                                    <button type="submit" class="bg-[#1D267D] text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md ">
+                                        Submit info
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="flex-auto  pt-0 text-xl">
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase flex">
+                            Total students = <p class="text-[#03C988] px-2 font-bold"> {{total_students}}</p>
+                        </h6>
+                    </div>
+                    
+                    {% if students_found %}
+
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-center rtl:text-right text-black ">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 text-black">
+                                <tr class="text-black text-l font-bold	">
+                                    <th scope="col" class="px-6 py-3">
+                                        Roll Number
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Class
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Division
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Gender
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Update
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for student in students_found %}
+
+                                <tr
+                                    class="odd:bg-white  even:bg-gray-50  border-b  text-black">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                        {{ student.roll_no }}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {{ student.students_name }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ student.class_no }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ student.class_division }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ student.gender }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="{% url 'updateStudentInfo' pk=student.pk %}">
+                                            <button type="button" class="bg-[#4E9F3D] p-1 rounded text-white">
+                                                Update Info
+                                            </button>
+                                        </a>
+                                    </td>
+                                    {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    {% else %}
+                    <p>No students found.</p>
+                    {% endif %}
+
+
+
+
+
+
+            <hr class="mt-6 border-b-1 border-blueGray-300">
+
+
+            <footer class="relative  pt-8 pb-6 mt-2">
+                <div class="container mx-auto px-4">
+                    <div class="flex flex-wrap items-center md:justify-between justify-center">
+                        <div class="w-full md:w-6/12 px-4 mx-auto text-center">
+                            <div class="text-sm text-blueGray-500 font-semibold py-1">
+                                C @ CST
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher's List</title>
+</head>
+<body>
+    <h1>All Teacher's List : </h1>
+    {% for teacher in teachers_found %}
+        <ul>
+            <li>{{teacher.teacher_name}}</li>
+        </ul>
+    {% endfor %}
+</body>
+</html>
