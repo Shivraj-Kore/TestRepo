@@ -64,7 +64,7 @@ class TeacherInfo(models.Model):
      teacher_registration_number = models.PositiveIntegerField(blank = False , null = False)
      teacher_unique_id = models.PositiveIntegerField(blank = False , null = False)
 
-     teaacher_photo = models.ImageField(blank=True , null=True) 
+     teacher_photo = models.ImageField(blank=True , null=True) 
 
      gender_choice = [
           ('m', 'male'),
@@ -80,10 +80,12 @@ class TeacherInfo(models.Model):
      caste = models.CharField(max_length = 25, blank=True , null=True)
      sub_caste = models.CharField(max_length = 25, blank=True , null=True)
 
-     qualificatons = models.CharField(max_length = 25, blank=True , null=True)
+     qualifications = models.CharField(max_length = 25, blank=True , null=True)
      
      nationality = models.CharField(max_length = 25, blank=True , null=True)
      mother_tongue = models.CharField(max_length = 20, blank=True , null=True)
+
+     street_address = models.CharField(max_length = 250, blank=True , null=True)
 
      state = models.CharField(max_length = 20, blank=True , null=True)
      city = models.CharField(max_length = 20, blank=True , null=True)

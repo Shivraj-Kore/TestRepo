@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-[#112244]">
     <section class=" py-1 bg-[#112244]">
         <div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
             <div
@@ -47,9 +47,28 @@
                             </div>
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
-                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                                        htmlfor="teacher_registration_number">
-                                        Registration Number
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="teacher_middle_name">
+                                        Teacher's Middle Name
+                                    </label>
+                                    <input type="text"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        placeholder="Middle Name" id="teacher_middle_name" name="teacher_middle_name">
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="teacher_surname">
+                                        Teacher's Surname
+                                    </label>
+                                    <input type="text"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        placeholder="Surname" id="teacher_surname" name="teacher_surname" required>
+                                </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="teacher_registration_number">
+                                        Registration Number 
                                     </label>
                                     <input type="number"
                                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -57,6 +76,14 @@
                                         name="teacher_registration_number" required>
                                 </div>
                             </div>
+                        </div>
+
+                        <hr class="mt-6 border-b-1 border-blueGray-300">
+
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                             
+                        </h6>
+                        <div class="flex flex-wrap">    
                             <div class="w-full lg:w-6/12 px-4">
                                 <div class="relative w-full mb-3">
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -101,14 +128,130 @@
                                     </label>
                                     <input type="number" min="0"
                                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                        placeholder="Unique ID" id="teacher_unique_id" name="teacher_unique_id"
-                                        required>
+                                        placeholder="Unique Number" id="teacher_unique_id" name="teacher_unique_id" required>
                                 </div>
                             </div>
                         </div>
 
                         <hr class="mt-6 border-b-1 border-blueGray-300">
 
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            Teacher's Photo
+                          </h6>
+                          <div class="flex flex-wrap">
+                              <div class="w-full lg:w-6/12 px-4">
+                                  <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="teacher_photo">
+                                      Photo
+                                    </label>
+                                    <input type="file" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" id="teacher_photo" name="teacher_photo">
+                                  </div>
+                                </div>
+                          </div>
+                  
+                          <hr class="mt-6 border-b-1 border-blueGray-300">
+
+                          
+                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            
+                          </h6>
+                          <div class="flex flex-wrap">
+                              <div class="w-full lg:w-6/12 px-4">
+                                  <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="teacher_contact_number">
+                                        Contact number
+                                    </label>
+                                    <input type="text"
+                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                        placeholder="Contact Number ..." id="teacher_contact_number" name="teacher_contact_number" required>
+                                  </div>
+                                </div>
+                                <div class="w-full lg:w-6/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                      <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="qualifications">
+                                            Qualificatons
+                                      </label>
+                                      <input type="text"
+                                          class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                          placeholder="Qualificaton" id="qualifications" name="qualifications" required>
+                                    </div>
+                                  </div>
+                          </div>
+                  
+                          <hr class="mt-6 border-b-1 border-blueGray-300">
+                        
+                          <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            
+                          </h6>
+                          <div class="flex flex-wrap">
+                              <div class="w-full lg:w-6/12 px-4">
+                                  <div class="relative w-full mb-3">
+                                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="nationality">
+                                        Nationality
+                                    </label>
+                                    <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Nationality" id="nationality" name="nationality" required>
+                                  </div>
+                                </div>
+                                <div class="w-full lg:w-6/12 px-4">
+                                    <div class="relative w-full mb-3">
+                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="mother_tongue">
+                                            Mother Tongue
+                                        </label>
+                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Mother Tongue" id="mother_tongue" name="mother_tongue" required>
+                                    </div>
+                                  </div>
+                          </div>
+                  
+                          <hr class="mt-6 border-b-1 border-blueGray-300">
+
+
+                          <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                            Address Information
+                          </h6>
+                          <div class="flex flex-wrap">
+                            <div class="w-full lg:w-6/12 px-4">
+                              <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="street_address">
+                                    Street Address
+                                </label>
+                                <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Address" id="street_address" name="street_address" required>
+                              </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                              <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="city">
+                                    City Name
+                                </label>
+                                <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="City" id="city" name="city" required>
+                              </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                              <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="district">
+                                    District Name
+                                </label>
+                                <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="District" id="district" name="district" required>
+                              </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                              <div class="relative w-full mb-3">
+                                <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="taluka">
+                                    Taluka
+                                </label>
+                                <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Taluka" id="taluka" name="taluka" required>
+                              </div>
+                            </div>
+                            <div class="w-full lg:w-6/12 px-4">
+                                <div class="relative w-full mb-3">
+                                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="state">
+                                    State
+                                  </label>
+                                  <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="State" id="state" name="state" required>
+                                </div>
+                              </div>
+                          </div>
+                  
+                          <hr class="mt-6 border-b-1 border-blueGray-300">
                         <div class="flex flex-wrap">
                             <button type="submit"
                                 class="border-0 px-3 py-3 placeholder-blueGray-300 text-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 bg-[#116622]">Submit</button>

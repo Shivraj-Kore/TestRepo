@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render , redirect , get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate , login , logout
@@ -5,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import StudentInfo 
 from .models import TeacherInfo
-
+from datetime import date
 #----------------------------------
 
 
@@ -215,41 +216,67 @@ def updateStudentInfo_view(request, pk):
 @login_required(login_url='login')
 def teachersList_view(request):
      teachers_found = TeacherInfo.objects.filter(user=request.user)
-     context = {'teachers_found':teachers_found}
-
+     total_teachers = teachers_found.count()
+     context = {'teachers_found':teachers_found , 'total_teachers':total_teachers}
      return render(request , 'teacher_details/allTeachersList.html' , context)
 
 
 @login_required(login_url='login')
 def newTeacherInfo_view(request):
-     context = {}
-     if request.method == 'POST':
-          teacher_name = request.POST.get('teacher_name')
-          teacher_surname = request.POST.get('teacher_surname')
-          teacher_registration_number = request.POST.get('teacher_registration_number')
+    if request.method == 'POST':
+        teacher_name = request.POST.get('teacher_name')
+        teacher_middle_name = request.POST.get('teacher_middle_name')
+        teacher_surname = request.POST.get('teacher_surname')
+        teacher_registration_number = request.POST.get('teacher_registration_number')
+        gender = request.POST.get('gender')
+        dob = request.POST.get('dob')
+        aadhar_no = request.POST.get('aadhar_no')
+        teacher_unique_id = request.POST.get('teacher_unique_id')
+        teacher_photo = request.FILES.get('teacher_photo')
+        teacher_contact_number = request.POST.get('teacher_contact_number')
+        qualifications = request.POST.get('qualifications')
+        nationality = request.POST.get('nationality')
+        mother_tongue = request.POST.get('mother_tongue')
+        street_address = request.POST.get('street_address')
+        city = request.POST.get('city')
+        district = request.POST.get('district')
+        taluka = request.POST.get('taluka')
+        state = request.POST.get('state')
 
-          teacher_info = TeacherInfo(   user=request.user,
-                                        teacher_name=teacher_name ,
-                                        teacher_surname=teacher_surname , 
-                                        teacher_registration_number=teacher_registration_number)          
-          teacher_info.save()
-          return redirect('home')
-     return render(request , 'teacher_details/newTeacherInfo.html')
+        teacher_info = TeacherInfo.objects.create(
+            user=request.user,
+            teacher_name=teacher_name,
+            teacher_middle_name=teacher_middle_name,
+            teacher_surname=teacher_surname,
+            teacher_registration_number=teacher_registration_number,
+            gender=gender,
+            dob=dob,
+            aadhar_no=aadhar_no,
+            teacher_unique_id=teacher_unique_id,
+            teacher_photo=teacher_photo,
+            teacher_contact_number=teacher_contact_number,
+            qualifications=qualifications,
+            nationality=nationality,
+            mother_tongue=mother_tongue,
+            street_address=street_address,
+            city=city,
+            district=district,
+            taluka=taluka,
+            state=state
+        )
 
+        return redirect('home')
+
+    return render(request, 'teacher_details/new_teacher_info.html')
 
 # import pandas as pd
 @login_required(login_url='login')
-def studentMarksEnter_view(request):
-     context  = {}
-     if request.method == 'POST':
-          class_no = request.POST.get('class_no')
-          class_division = request.POST.get('class_division')
-          semister = request.POST.get('semister')
-          total_subjects = request.POST.get('total_subjects')
+def todaysBirthdays_view(request):
 
-          students_found = StudentInfo.objects.filter (user=request.user , class_no=class_no , class_division=class_division)
-          print(class_no , class_division , semister , total_subjects)
-          print(students_found)
-          total_students = students_found.count()
-          context = {'students_found':students_found , 'total_subjects':total_subjects , 'total_students':total_students}
-     return render(request, 'student_details/studentMarksEnter.html' , context)
+     today = datetime.date.today()
+     todays_birthdays = StudentInfo.objects.filter(dob__day=today.day, dob__month=today.month)
+     total_students = todays_birthdays.count()
+     print(todays_birthdays)
+     context = {'todays_birthdays':todays_birthdays , 'total_students':total_students}
+
+     return render(request, 'student_details/todaysBirthdays.html' , context)

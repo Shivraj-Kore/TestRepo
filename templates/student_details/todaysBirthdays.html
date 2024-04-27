@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher's List</title>
+    <title>Student Marks</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-[#112244]">
     <section class=" py-1 bg-[#112244] h-full">
 
@@ -28,64 +30,53 @@
                 </div>
 
                 <div class="flex-auto px-4 lg:px-10 pt-0">
+                    <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                        Search class to enter marks:
+                    </h6>
 
-                    <div class="flex-auto  pt-0 text-xl">
-                        <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase flex">
-                            Total teachers = <p class="text-[#03C988] px-2 font-bold"> {{total_teachers}}</p>
-                        </h6>
-                    </div>
-                    {% if teachers_found %}
 
+                    {% if todays_birthdays %}
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table class="w-full text-sm text-center rtl:text-right text-black ">
-                            <thead
-                                class="text-xs text-gray-700 uppercase bg-gray-50 text-black">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 text-black">
                                 <tr class="text-black text-l font-bold	">
-                                    <th scope="col" class="px-6 py-3">
-                                        Registration Number
-                                    </th>
                                     <th scope="col" class="px-6 py-3">
                                         Name
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Gender
+                                        Class
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Qualification
+                                        Division
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Date of Birth
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for teacher in teachers_found %}
-
-                                <tr
-                                    class="odd:bg-white  even:bg-gray-50  border-b  text-black">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                        {{ teacher.teacher_name }}
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        {{ teacher.teacher_registration_number }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ teacher.gender }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        {{ teacher.qualifications }}
-                                    </td>
-                                    {% endfor %}
-                                </tr>
+                                {% for student in todays_birthdays %}
+                                    <tr class="odd:bg-white even:bg-gray-50  border-b  text-black">
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            {{ student.students_name }}
+                                        </th>
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            {{ student.class_no }}
+                                        </th>
+                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            {{ student.class_division }}
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            {{ student.dob|date:"Y-m-d" }}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
-
-
-                    {% else %}
-                    <p>No Teachers found.</p>
-                    {% endif %}
-
-
-
+                {% else %}
+                    <p>No students have a birthday today.</p>
+                {% endif %}
 
 
 
@@ -104,5 +95,9 @@
                 </div>
             </footer>
     </section>
+    <script>
+        
+    </script>
 </body>
+
 </html>

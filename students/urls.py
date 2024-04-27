@@ -13,7 +13,7 @@ urlpatterns = [
     path('singleStudentSearch/' , views.singleStudentSearch_view , name='singleStudentSearch'),
     path('studentDashboard/' , views.studentDashboard_view , name='studentDashboard'),
     path('updateStudentInfo/<int:pk>' , views.updateStudentInfo_view , name='updateStudentInfo'),
-    path('studentMarksEnter' , views.studentMarksEnter_view , name='studentMarksEnter'),
+    path('todaysBirthdays' , views.todaysBirthdays_view , name='todaysBirthdays'),
     
     # --------------Teacher's urls----------------
     path('newTeacherInfo/' , views.newTeacherInfo_view , name='newTeacherInfo'),

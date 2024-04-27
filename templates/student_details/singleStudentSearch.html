@@ -116,12 +116,66 @@
                             </p>
                         </div>
                     </div>
+
+                    <div class="w-full lg:w-6/12 px-4">
+                      <div class="relative w-full mb-3">
+                          <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                              
+                              Class
+                          </label>
+                          <p class="border-0 px-3 py-3 bg-white rounded text-sm shadow">
+
+                              {{ student.class_no }}
+                          </p>
+                      </div>
+                    </div>
+
+                    <div class="w-full lg:w-6/12 px-4">
+                      <div class="relative w-full mb-3">
+                          <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                              
+                              Division
+                          </label>
+                          <p class="border-0 px-3 py-3 bg-white rounded text-sm shadow">
+
+                              {{ student.class_division }}
+                          </p>
+                      </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-6/12 px-4">
+                      <div class="relative w-full mb-3">
+                          <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                              
+                            Religion
+                          </label>
+                          <p class="border-0 px-3 py-3 bg-white rounded text-sm shadow">
+
+                              {{ student.religion }}
+                          </p>
+                      </div>
+                    </div>
+                    
+                    <div class="w-full lg:w-6/12 px-4">
+                      <div class="relative w-full mb-3">
+                          <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                              
+                              Caste
+                          </label>
+                          <p class="border-0 px-3 py-3 bg-white rounded text-sm shadow">
+
+                              {{ student.caste }}
+                          </p>
+                      </div>
+                    </div>
+
+                  
                 
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
                                 
-                                
+                                Photo
                             </label>
                             <p class="border-0 px-3 py-3 bg-white rounded text-sm shadow flex justify-center">
                                     {% if student.student_photo %}
