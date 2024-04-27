@@ -267,7 +267,7 @@ def newTeacherInfo_view(request):
 
         return redirect('home')
 
-    return render(request, 'teacher_details/new_teacher_info.html')
+    return render(request, 'teacher_details/newTeacherInfo.html')
 
 # import pandas as pd
 @login_required(login_url='login')
