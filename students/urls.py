@@ -5,9 +5,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('' , views.index , name='index'),
+    path('' , views.home , name='home'),
     path('login/' , views.login_view , name='login'),
-    path('home/' , views.home , name='home'),
     path('logout/' , views.logout_view , name='logout'),
     path('newStudentInfo/' , views.newStudentInfo_view , name='newStudentInfo'),
     path('singleStudentSearch/' , views.singleStudentSearch_view , name='singleStudentSearch'),
