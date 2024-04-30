@@ -8,26 +8,34 @@ from .models import StudentInfo
 from .models import TeacherInfo
 from datetime import date
 #----------------------------------
+from django.contrib.sessions.models import Session
 
 
 def index(request):
      return render(request , 'index.html')
 
 def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-     if request.method == 'POST':
-          username = request.POST.get('username')
-          password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
 
-          user = authenticate(request, username = username , password = password)
-               
-          if user is not None:
-               login(request,user)
-               return redirect('home')
-          else:
-               return HttpResponse("NO USER AVAILABLE")
-               
-     return render(request , 'login.html')
+        if user is not None:
+            # Get the user's current session key
+            current_session_key = request.session.session_key
+
+            # Log out the user from all other sessions
+            for session in Session.objects.all():
+                if session.get_decoded().get('_auth_user_id') == str(user.pk) and session.session_key != current_session_key:
+                    session.delete()
+
+            login(request, user)
+            return redirect('home')
+        else:
+            return HttpResponse("NO USER AVAILABLE")
+
+    return render(request, 'login.html')
 
 def logout_view(request):
     logout(request)

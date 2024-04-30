@@ -78,6 +78,24 @@
                         </div>
                     </div>
 
+
+                    <div class="w-full lg:w-6/12 px-4">
+                        <div class="relative w-full mb-3">
+                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                                
+                                Photo
+                            </label>
+                            <p class="border-0 px-3 py-3 bg-white rounded text-sm shadow flex justify-center">
+                                    {% if student.student_photo %}
+                                    <img src="{{ student.student_photo.url }}" alt="Student Photo" width="200">
+                                    {% else %}
+                                    <p>No photo available.</p>
+                                    {% endif %}
+                            </p>
+                        </div>
+                    </div>
+
+                    
                     <div class="w-full lg:w-6/12 px-4">
                         <div class="relative w-full mb-3">
                             <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
@@ -167,24 +185,6 @@
                               {{ student.caste }}
                           </p>
                       </div>
-                    </div>
-
-                  
-                
-                    <div class="w-full lg:w-6/12 px-4">
-                        <div class="relative w-full mb-3">
-                            <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                                
-                                Photo
-                            </label>
-                            <p class="border-0 px-3 py-3 bg-white rounded text-sm shadow flex justify-center">
-                                    {% if student.student_photo %}
-                                    <img src="{{ student.student_photo.url }}" alt="Student Photo" width="200">
-                                    {% else %}
-                                    <p>No photo available.</p>
-                                    {% endif %}
-                            </p>
-                        </div>
                     </div>
                 
                 
