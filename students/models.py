@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import RegexValidator, MinLengthValidator, MaxLengthValidator
 
 class StudentInfo(models.Model):
      user = models.ForeignKey( User, on_delete=models.CASCADE , null=True , blank=True)
@@ -17,7 +18,15 @@ class StudentInfo(models.Model):
      ]
      gender = models.CharField(max_length=1, choices=gender_choice)
      dob = models.DateField()
-     aadhar_no = models.PositiveIntegerField(blank = False , null = False)
+     aadhar_no = models.CharField(
+          max_length=12,
+          validators=[
+               RegexValidator(r'^\d{12}$', 'Enter a 12-digit number.'),
+               MinLengthValidator(12),
+               MaxLengthValidator(12)
+          ]
+     )
+
 
 #unique----
      roll_no = models.PositiveIntegerField(blank = False , null = False)
@@ -74,7 +83,14 @@ class TeacherInfo(models.Model):
      dob = models.DateField(null=True , blank=True)
      aadhar_no = models.PositiveIntegerField(blank = False , null = False , default=0)
     
-     teacher_contact_number = models.PositiveIntegerField(blank=True , null=True)
+     teacher_contact_number = models.CharField(
+          max_length=10,
+          validators=[
+               RegexValidator(r'^\d{12}$', 'Enter a 12-digit number.'),
+               MinLengthValidator(10),
+               MaxLengthValidator(10)
+          ]
+     )
      
      religion = models.CharField(max_length = 25, blank=True , null=True)
      caste = models.CharField(max_length = 25, blank=True , null=True)
